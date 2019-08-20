@@ -1,0 +1,2 @@
+# MySnipTool
+Screen capture faster
