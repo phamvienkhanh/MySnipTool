@@ -2,7 +2,7 @@
 #include <Windows.h>
 #include <string>
 
-#define DEFAULT_WIDTH  300
+#define DEFAULT_WIDTH  500
 #define DEFAULT_HEIGHT 30
 
 class ConfigWindows
