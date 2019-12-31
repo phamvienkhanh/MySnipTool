@@ -2,6 +2,8 @@
 
 #define EDIT_CMD 0
 
+extern ConfigWindows s_hwndCofig;
+
 LRESULT CALLBACK ConfigWndProc(HWND hWnd, UINT message,
 	WPARAM wParam, LPARAM lParam)
 {
@@ -38,6 +40,25 @@ LRESULT CALLBACK ConfigWndProc(HWND hWnd, UINT message,
 	}
 	break;
 
+	/*case WM_KEYDOWN:
+	{
+		switch (wParam)
+		{
+		case 0x41:
+		{
+			if (GetAsyncKeyState(VK_CONTROL) & 0x8000)
+			{
+				s_hwndCofig.HideWithAnimation();
+			}
+		}
+		break;
+
+		default:
+			break;
+		}
+	}
+	break;*/
+
 	default:
 		return DefWindowProc(hWnd, message, wParam, lParam);
 	}
@@ -65,7 +86,7 @@ void ConfigWindows::InitWindows(HINSTANCE _hInstance)
 	configWRegisterWndClass(_hInstance, m_szWndClassName);
 
 	m_hwnd		= CreateWindowEx(WS_EX_NOACTIVATE, m_szWndClassName, m_szWndClassName, WS_POPUP, 0, 0, 0, 0, NULL, NULL, _hInstance,NULL);
-	m_hTextBox = CreateWindow(L"EDIT", L"", WS_CHILD, 3, 3, 294, 24, m_hwnd, (HMENU)EDIT_CMD, _hInstance, NULL);
+	m_hTextBox = CreateWindow(L"EDIT", L"", WS_CHILD, 3, 3, 494, 24, m_hwnd, (HMENU)EDIT_CMD, _hInstance, NULL);
 }
 
 void ConfigWindows::ShowWindows(bool _show)
